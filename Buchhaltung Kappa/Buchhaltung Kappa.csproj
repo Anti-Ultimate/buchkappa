@@ -66,6 +66,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>databaseDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="databaseDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>databaseDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="databaseDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>databaseDataSet4.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Eingang_dataset.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -76,6 +86,11 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="kmBuchDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>kmBuchDataset.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -90,6 +105,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Ausgang_dataset.xsc">
       <DependentUpon>Ausgang_dataset.xsd</DependentUpon>
@@ -135,6 +151,28 @@
     <None Include="databaseDataSet2.xss">
       <DependentUpon>databaseDataSet2.xsd</DependentUpon>
     </None>
+    <None Include="databaseDataSet3.xsc">
+      <DependentUpon>databaseDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="databaseDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>databaseDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="databaseDataSet3.xss">
+      <DependentUpon>databaseDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="databaseDataSet4.xsc">
+      <DependentUpon>databaseDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="databaseDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>databaseDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="databaseDataSet4.xss">
+      <DependentUpon>databaseDataSet4.xsd</DependentUpon>
+    </None>
     <None Include="Eingang_dataset.xsc">
       <DependentUpon>Eingang_dataset.xsd</DependentUpon>
     </None>
@@ -145,6 +183,17 @@
     </None>
     <None Include="Eingang_dataset.xss">
       <DependentUpon>Eingang_dataset.xsd</DependentUpon>
+    </None>
+    <None Include="kmBuchDataset.xsc">
+      <DependentUpon>kmBuchDataset.xsd</DependentUpon>
+    </None>
+    <None Include="kmBuchDataset.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>kmBuchDataset.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="kmBuchDataset.xss">
+      <DependentUpon>kmBuchDataset.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -163,6 +212,7 @@
     <Content Include="database.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\cpzYXCI.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
