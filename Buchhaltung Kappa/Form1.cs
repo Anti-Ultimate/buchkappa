@@ -142,14 +142,14 @@ namespace Buchhaltung_Kappa
             {
                 if (betragsart.SelectedItem.ToString() == "Eingang\t")
                 {
-                    this.eingangTableAdapter.Insert(Datum.Text, vDatum.Text, bezeichnung.Text, betrag.Text, mwststeuer.Text, mwst.Text);
+                    this.eingangTableAdapter.Delete(ID,Datum.Text, vDatum.Text, bezeichnung.Text, betrag.Text, mwststeuer.Text, mwst.Text);
                     this.eingangTableAdapter.Update(this.databaseDataSet1.Eingang);
                     this.dataGridView2.Refresh();
                     dataLoad();
                 }
                 else
                 {
-                    this.ausgangTableAdapter.Insert(Datum.Text, vDatum.Text, bezeichnung.Text, betrag.Text, mwststeuer.Text, mwst.Text);
+                    this.ausgangTableAdapter.Delete(ID,Datum.Text, vDatum.Text, bezeichnung.Text, betrag.Text, mwststeuer.Text, mwst.Text);
                     this.ausgangTableAdapter.Update(this.databaseDataSet1.Ausgang);
                     this.dataGridView1.Refresh();
                     dataLoad();
@@ -157,7 +157,7 @@ namespace Buchhaltung_Kappa
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Bitte wählen Sie eine Betrags - Art aus!s");
+                MessageBox.Show("Ein unerwarteter Fehler ist während des Löschens der Datensätze aufgetreten!");
             }
         }
 
@@ -195,7 +195,7 @@ namespace Buchhaltung_Kappa
             //this.eingangTableAdapter.Insert(Datum.Text, vDatum.Text, bezeichnung.Text, betrag.Text, mwststeuer.Text, mwst.Text);
             //this.eingangTableAdapter.Update(this.databaseDataSet1.Eingang);
             //this.dataGridView2.Refresh();
-            this.kMBuchTableAdapter.Insert(kmDatumUser.Text, kmStreckeUser.Text, kmZweckUser.Text, int.Parse(kmAnfangUser.Text), int.Parse(kmEndeUser.Text), 0);
+            this.kMBuchTableAdapter.Insert(kmDatumUser.Text, kmStreckeUser.Text, kmZweckUser.Text, int.Parse(kmAnfangUser.Text), int.Parse(kmEndeUser.Text), int.Parse(kmGefahrKMUser.Text));
 
             // this.kMBuchTableAdapter.Insert(kmDatumUser.Text, kmStreckeUser.Text, kmZweckUser.Text, int.Parse(kmAnfangUser.Text), int.Parse(kmEndeUser.Text), int.Parse(kmGefahrKMUser.Text));
             this.kMBuchTableAdapter.Update(this.kmBuchDataset.KMBuch);
@@ -205,7 +205,6 @@ namespace Buchhaltung_Kappa
 
         private void dataGridViewKM_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
 
         private void button3_Click_2(object sender, EventArgs e)
@@ -275,6 +274,64 @@ namespace Buchhaltung_Kappa
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView2_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            ID = int.Parse(this.dataGridView2.CurrentRow.Cells[0].Value.ToString());
+            this.bezeichnung.Text = this.dataGridView2.CurrentRow.Cells[3].Value.ToString();
+            this.Datum.Text = this.dataGridView2.CurrentRow.Cells[1].Value.ToString();
+            this.vDatum.Text = this.dataGridView2.CurrentRow.Cells[2].Value.ToString();
+            this.betrag.Text = this.dataGridView2.CurrentRow.Cells[4].Value.ToString();
+            this.mwststeuer.Text = this.dataGridView2.CurrentRow.Cells[5].Value.ToString();
+            this.mwst.Text = this.dataGridView2.CurrentRow.Cells[6].Value.ToString();
+            this.betragsart.SelectedIndex = 0;
+
+            // Maybe I become hyped enough to implemented changing data sets, but I don't really see it happening
+            // this.eintragen.Text = "Aktualisieren";
+        }
+
+        private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            ID = int.Parse(this.dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            this.bezeichnung.Text = this.dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            this.Datum.Text = this.dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            this.vDatum.Text = this.dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            this.betrag.Text = this.dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            this.mwststeuer.Text = this.dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            this.mwst.Text = this.dataGridView1.CurrentRow.Cells[6].Value.ToString();
+            this.betragsart.SelectedIndex = 1;
+        }
+
+        private void dataGridViewKM_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            ID = int.Parse(this.dataGridViewKM.CurrentRow.Cells[0].Value.ToString());
+            this.kmDatumUser.Text = this.dataGridViewKM.CurrentRow.Cells[1].Value.ToString();
+            this.kmStreckeUser.Text = this.dataGridViewKM.CurrentRow.Cells[2].Value.ToString();
+            this.kmZweckUser.Text = this.dataGridViewKM.CurrentRow.Cells[3].Value.ToString();
+            this.kmAnfangUser.Text = this.dataGridViewKM.CurrentRow.Cells[4].Value.ToString();
+            this.kmEndeUser.Text = this.dataGridViewKM.CurrentRow.Cells[5].Value.ToString();
+            this.kmGefahrKMUser.Text = this.dataGridViewKM.CurrentRow.Cells[6].Value.ToString();
+        }
+
+        private void button2_Click_2(object sender, EventArgs e)
+        {
+            try
+            {
+                this.kMBuchTableAdapter.Delete(ID, kmDatumUser.Text, kmStreckeUser.Text, kmZweckUser.Text, int.Parse(kmAnfangUser.Text), int.Parse(kmEndeUser.Text), int.Parse(kmGefahrKMUser.Text));
+                this.kMBuchTableAdapter.Update(this.kmBuchDataset.KMBuch);
+                this.dataGridViewKM.Refresh();
+                dataLoad();
+            }
+            catch
+            {
+                MessageBox.Show("Sie versuchen leere Datensätze zu löschen. \nBitte wählen sie zuerst einen Datensatz aus.");
+            }
+        }
+
+        private void label20_Click(object sender, EventArgs e)
         {
 
         }

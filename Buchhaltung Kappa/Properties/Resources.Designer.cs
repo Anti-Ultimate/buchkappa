@@ -69,5 +69,15 @@ namespace Buchhaltung_Kappa.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap y_QbW_tm {
+            get {
+                object obj = ResourceManager.GetObject("y_QbW_tm", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

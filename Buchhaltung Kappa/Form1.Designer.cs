@@ -90,16 +90,10 @@
             this.kmDatumUser = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridViewKM = new System.Windows.Forms.DataGridView();
-            this.iDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fahrstreckeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zweckDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kilometerAnfangDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kilometerEndeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gefahreneKilometerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kMBuchBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.kmBuchDataset = new Buchhaltung_Kappa.databaseDataSet4();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label19 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -107,7 +101,16 @@
             this.eingangTableAdapter = new Buchhaltung_Kappa.databaseDataSet1TableAdapters.EingangTableAdapter();
             this.databaseDataSet11 = new Buchhaltung_Kappa.databaseDataSet1();
             this.kMBuchTableAdapter = new Buchhaltung_Kappa.databaseDataSet4TableAdapters.KMBuchTableAdapter();
-            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.iDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fahrstreckeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zweckDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kilometerAnfangDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kilometerEndeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gefahreneKilometerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -123,6 +126,7 @@
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -385,6 +389,7 @@
             this.dataGridView2.Size = new System.Drawing.Size(743, 210);
             this.dataGridView2.TabIndex = 1;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            this.dataGridView2.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView2_RowHeaderMouseDoubleClick);
             // 
             // iDDataGridViewTextBoxColumn1
             // 
@@ -466,6 +471,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(743, 210);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick);
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -638,6 +644,7 @@
             this.button2.TabIndex = 37;
             this.button2.Text = "Löschen";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_2);
             // 
             // button3
             // 
@@ -703,8 +710,8 @@
             // 
             // dataGridViewKM
             // 
-            this.dataGridViewKM.AllowUserToResizeColumns = false;
             this.dataGridViewKM.AutoGenerateColumns = false;
+            this.dataGridViewKM.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.dataGridViewKM.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewKM.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDDataGridViewTextBoxColumn2,
@@ -715,53 +722,13 @@
             this.kilometerEndeDataGridViewTextBoxColumn,
             this.gefahreneKilometerDataGridViewTextBoxColumn});
             this.dataGridViewKM.DataSource = this.kMBuchBindingSource;
-            this.dataGridViewKM.Location = new System.Drawing.Point(102, 3);
+            this.dataGridViewKM.GridColor = System.Drawing.Color.LightGray;
+            this.dataGridViewKM.Location = new System.Drawing.Point(4, 0);
             this.dataGridViewKM.Name = "dataGridViewKM";
-            this.dataGridViewKM.Size = new System.Drawing.Size(744, 330);
+            this.dataGridViewKM.Size = new System.Drawing.Size(926, 330);
             this.dataGridViewKM.TabIndex = 0;
             this.dataGridViewKM.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewKM_CellContentClick);
-            // 
-            // iDDataGridViewTextBoxColumn2
-            // 
-            this.iDDataGridViewTextBoxColumn2.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn2.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn2.Name = "iDDataGridViewTextBoxColumn2";
-            // 
-            // datumDataGridViewTextBoxColumn
-            // 
-            this.datumDataGridViewTextBoxColumn.DataPropertyName = "Datum";
-            this.datumDataGridViewTextBoxColumn.HeaderText = "Datum";
-            this.datumDataGridViewTextBoxColumn.Name = "datumDataGridViewTextBoxColumn";
-            // 
-            // fahrstreckeDataGridViewTextBoxColumn
-            // 
-            this.fahrstreckeDataGridViewTextBoxColumn.DataPropertyName = "Fahrstrecke";
-            this.fahrstreckeDataGridViewTextBoxColumn.HeaderText = "Fahrstrecke";
-            this.fahrstreckeDataGridViewTextBoxColumn.Name = "fahrstreckeDataGridViewTextBoxColumn";
-            // 
-            // zweckDataGridViewTextBoxColumn
-            // 
-            this.zweckDataGridViewTextBoxColumn.DataPropertyName = "Zweck";
-            this.zweckDataGridViewTextBoxColumn.HeaderText = "Zweck";
-            this.zweckDataGridViewTextBoxColumn.Name = "zweckDataGridViewTextBoxColumn";
-            // 
-            // kilometerAnfangDataGridViewTextBoxColumn
-            // 
-            this.kilometerAnfangDataGridViewTextBoxColumn.DataPropertyName = "Kilometer Anfang";
-            this.kilometerAnfangDataGridViewTextBoxColumn.HeaderText = "Kilometer Anfang";
-            this.kilometerAnfangDataGridViewTextBoxColumn.Name = "kilometerAnfangDataGridViewTextBoxColumn";
-            // 
-            // kilometerEndeDataGridViewTextBoxColumn
-            // 
-            this.kilometerEndeDataGridViewTextBoxColumn.DataPropertyName = "Kilometer Ende";
-            this.kilometerEndeDataGridViewTextBoxColumn.HeaderText = "Kilometer Ende";
-            this.kilometerEndeDataGridViewTextBoxColumn.Name = "kilometerEndeDataGridViewTextBoxColumn";
-            // 
-            // gefahreneKilometerDataGridViewTextBoxColumn
-            // 
-            this.gefahreneKilometerDataGridViewTextBoxColumn.DataPropertyName = "Gefahrene Kilometer";
-            this.gefahreneKilometerDataGridViewTextBoxColumn.HeaderText = "Gefahrene Kilometer";
-            this.gefahreneKilometerDataGridViewTextBoxColumn.Name = "gefahreneKilometerDataGridViewTextBoxColumn";
+            this.dataGridViewKM.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewKM_RowHeaderMouseDoubleClick);
             // 
             // kMBuchBindingSource
             // 
@@ -775,6 +742,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label21);
             this.tabPage3.Controls.Add(this.label19);
             this.tabPage3.Controls.Add(this.label2);
             this.tabPage3.Controls.Add(this.label1);
@@ -783,34 +751,44 @@
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(933, 577);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Le credits";
+            this.tabPage3.Text = "Über dieses grandiose Program";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(712, 535);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(218, 42);
+            this.label19.TabIndex = 3;
+            this.label19.Text = "2016 - 2016";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(292, 316);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(509, 132);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(642, 29);
+            this.label2.Size = new System.Drawing.Size(88, 9);
             this.label2.TabIndex = 2;
-            this.label2.Text = "NIEMAND SONST HAT AN DEM PROJEKT GEARBEITET";
+            this.label2.Text = "(vielleicht auch Wallner)";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(378, 102);
+            this.label1.Location = new System.Drawing.Point(296, 108);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(502, 24);
+            this.label1.Size = new System.Drawing.Size(596, 24);
             this.label1.TabIndex = 1;
-            this.label1.Text = "IN KOOPERATION MIT REISENHOFER UND ZUCHALSKI";
+            this.label1.Text = "EINE KOOPERATION ZWISCHEN REISENHOFER UND ZUCHALSKI";
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.Image = global::Buchhaltung_Kappa.Properties.Resources.cpzYXCI;
-            this.pictureBox1.Location = new System.Drawing.Point(-54, 85);
+            this.pictureBox1.Location = new System.Drawing.Point(247, 164);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(411, 426);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -834,22 +812,91 @@
             // 
             this.kMBuchTableAdapter.ClearBeforeFill = true;
             // 
-            // label19
+            // label20
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(493, 426);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(250, 42);
-            this.label19.TabIndex = 3;
-            this.label19.Text = "WAHNSINN!!!";
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(490, 616);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(455, 42);
+            this.label20.TabIndex = 4;
+            this.label20.Text = "Buchhaltung Kappa V1.0";
+            this.label20.Click += new System.EventHandler(this.label20_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Buchhaltung_Kappa.Properties.Resources.cpzYXCI;
+            this.pictureBox2.Location = new System.Drawing.Point(12, 616);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(48, 42);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(32, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(878, 108);
+            this.label21.TabIndex = 4;
+            this.label21.Text = "Buchhaltung Kappa";
+            // 
+            // iDDataGridViewTextBoxColumn2
+            // 
+            this.iDDataGridViewTextBoxColumn2.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn2.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn2.Name = "iDDataGridViewTextBoxColumn2";
+            this.iDDataGridViewTextBoxColumn2.Width = 80;
+            // 
+            // datumDataGridViewTextBoxColumn
+            // 
+            this.datumDataGridViewTextBoxColumn.DataPropertyName = "Datum";
+            this.datumDataGridViewTextBoxColumn.HeaderText = "Datum";
+            this.datumDataGridViewTextBoxColumn.Name = "datumDataGridViewTextBoxColumn";
+            // 
+            // fahrstreckeDataGridViewTextBoxColumn
+            // 
+            this.fahrstreckeDataGridViewTextBoxColumn.DataPropertyName = "Fahrstrecke";
+            this.fahrstreckeDataGridViewTextBoxColumn.HeaderText = "Fahrstrecke";
+            this.fahrstreckeDataGridViewTextBoxColumn.Name = "fahrstreckeDataGridViewTextBoxColumn";
+            this.fahrstreckeDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // zweckDataGridViewTextBoxColumn
+            // 
+            this.zweckDataGridViewTextBoxColumn.DataPropertyName = "Zweck";
+            this.zweckDataGridViewTextBoxColumn.HeaderText = "Zweck";
+            this.zweckDataGridViewTextBoxColumn.Name = "zweckDataGridViewTextBoxColumn";
+            this.zweckDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // kilometerAnfangDataGridViewTextBoxColumn
+            // 
+            this.kilometerAnfangDataGridViewTextBoxColumn.DataPropertyName = "Kilometer Anfang";
+            this.kilometerAnfangDataGridViewTextBoxColumn.HeaderText = "Kilometer Anfang";
+            this.kilometerAnfangDataGridViewTextBoxColumn.Name = "kilometerAnfangDataGridViewTextBoxColumn";
+            // 
+            // kilometerEndeDataGridViewTextBoxColumn
+            // 
+            this.kilometerEndeDataGridViewTextBoxColumn.DataPropertyName = "Kilometer Ende";
+            this.kilometerEndeDataGridViewTextBoxColumn.HeaderText = "Kilometer Ende";
+            this.kilometerEndeDataGridViewTextBoxColumn.Name = "kilometerEndeDataGridViewTextBoxColumn";
+            // 
+            // gefahreneKilometerDataGridViewTextBoxColumn
+            // 
+            this.gefahreneKilometerDataGridViewTextBoxColumn.DataPropertyName = "Gefahrene Kilometer";
+            this.gefahreneKilometerDataGridViewTextBoxColumn.HeaderText = "Gefahrene Kilometer";
+            this.gefahreneKilometerDataGridViewTextBoxColumn.Name = "gefahreneKilometerDataGridViewTextBoxColumn";
             // 
             // Buchhaltung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(962, 620);
+            this.ClientSize = new System.Drawing.Size(960, 657);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.label20);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "Buchhaltung";
             this.Text = "Buchhaltung Kappa";
@@ -872,7 +919,9 @@
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -914,7 +963,6 @@
         private System.Windows.Forms.Button Löschen;
         private System.Windows.Forms.Button bereinigen;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView dataGridViewKM;
         private databaseDataSet1 databaseDataSet11;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
@@ -929,13 +977,6 @@
         private databaseDataSet4 kmBuchDataset;
         private System.Windows.Forms.BindingSource kMBuchBindingSource;
         private databaseDataSet4TableAdapters.KMBuchTableAdapter kMBuchTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn datumDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fahrstreckeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn zweckDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kilometerAnfangDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kilometerEndeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gefahreneKilometerDataGridViewTextBoxColumn;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
@@ -957,6 +998,17 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.DataGridView dataGridViewKM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datumDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fahrstreckeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zweckDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kilometerAnfangDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kilometerEndeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gefahreneKilometerDataGridViewTextBoxColumn;
     }
 }
 
