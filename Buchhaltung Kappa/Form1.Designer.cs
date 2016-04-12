@@ -29,8 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Buchhaltung));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dateTimePicker_vDatum = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker_Datum = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -72,6 +75,7 @@
             this.ustSummeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ausgangBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dateTimePicker_KM = new System.Windows.Forms.DateTimePicker();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -90,11 +94,18 @@
             this.kmDatumUser = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridViewKM = new System.Windows.Forms.DataGridView();
+            this.iDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fahrstreckeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zweckDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kilometerAnfangDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kilometerEndeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gefahreneKilometerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kMBuchBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.kmBuchDataset = new Buchhaltung_Kappa.databaseDataSet4();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label21 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ausgangTableAdapter = new Buchhaltung_Kappa.databaseDataSet1TableAdapters.AusgangTableAdapter();
@@ -103,14 +114,6 @@
             this.kMBuchTableAdapter = new Buchhaltung_Kappa.databaseDataSet4TableAdapters.KMBuchTableAdapter();
             this.label20 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.iDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fahrstreckeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zweckDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kilometerAnfangDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kilometerEndeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gefahreneKilometerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -144,6 +147,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.dateTimePicker_vDatum);
+            this.tabPage1.Controls.Add(this.dateTimePicker_Datum);
             this.tabPage1.Controls.Add(this.label11);
             this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Controls.Add(this.label9);
@@ -175,6 +180,21 @@
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
+            // dateTimePicker_vDatum
+            // 
+            this.dateTimePicker_vDatum.Location = new System.Drawing.Point(144, 539);
+            this.dateTimePicker_vDatum.Name = "dateTimePicker_vDatum";
+            this.dateTimePicker_vDatum.Size = new System.Drawing.Size(200, 21);
+            this.dateTimePicker_vDatum.TabIndex = 30;
+            // 
+            // dateTimePicker_Datum
+            // 
+            this.dateTimePicker_Datum.Location = new System.Drawing.Point(144, 513);
+            this.dateTimePicker_Datum.Name = "dateTimePicker_Datum";
+            this.dateTimePicker_Datum.Size = new System.Drawing.Size(200, 21);
+            this.dateTimePicker_Datum.TabIndex = 29;
+            this.dateTimePicker_Datum.ValueChanged += new System.EventHandler(this.dateTimePicker_Datum_ValueChanged);
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -199,11 +219,11 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(306, 540);
+            this.label9.Location = new System.Drawing.Point(361, 539);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(102, 16);
+            this.label9.Size = new System.Drawing.Size(41, 16);
             this.label9.TabIndex = 26;
-            this.label9.Text = "Mehrwertsteuer:";
+            this.label9.Text = "Mwst:";
             // 
             // label8
             // 
@@ -219,7 +239,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(31, 538);
+            this.label7.Location = new System.Drawing.Point(6, 539);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(132, 16);
             this.label7.TabIndex = 24;
@@ -229,7 +249,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(110, 514);
+            this.label6.Location = new System.Drawing.Point(85, 515);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 16);
             this.label6.TabIndex = 23;
@@ -294,6 +314,7 @@
             this.bezeichnung.Name = "bezeichnung";
             this.bezeichnung.Size = new System.Drawing.Size(572, 21);
             this.bezeichnung.TabIndex = 16;
+            this.bezeichnung.TextChanged += new System.EventHandler(this.bezeichnung_TextChanged);
             // 
             // eintragen
             // 
@@ -321,6 +342,7 @@
             this.mwst.Name = "mwst";
             this.mwst.Size = new System.Drawing.Size(100, 21);
             this.mwst.TabIndex = 12;
+            this.mwst.TextChanged += new System.EventHandler(this.mwst_TextChanged);
             // 
             // betrag
             // 
@@ -328,20 +350,25 @@
             this.betrag.Name = "betrag";
             this.betrag.Size = new System.Drawing.Size(100, 21);
             this.betrag.TabIndex = 3;
+            this.betrag.TextChanged += new System.EventHandler(this.betrag_TextChanged);
             // 
             // vDatum
             // 
-            this.vDatum.Location = new System.Drawing.Point(170, 536);
+            this.vDatum.Location = new System.Drawing.Point(34, 267);
             this.vDatum.Name = "vDatum";
             this.vDatum.Size = new System.Drawing.Size(121, 21);
             this.vDatum.TabIndex = 10;
+            this.vDatum.Visible = false;
+            this.vDatum.TextChanged += new System.EventHandler(this.vDatum_TextChanged);
             // 
             // Datum
             // 
-            this.Datum.Location = new System.Drawing.Point(170, 510);
+            this.Datum.Location = new System.Drawing.Point(34, 294);
             this.Datum.Name = "Datum";
             this.Datum.Size = new System.Drawing.Size(121, 21);
             this.Datum.TabIndex = 7;
+            this.Datum.Visible = false;
+            this.Datum.TextChanged += new System.EventHandler(this.Datum_TextChanged);
             // 
             // betragsart
             // 
@@ -354,6 +381,7 @@
             this.betragsart.Name = "betragsart";
             this.betragsart.Size = new System.Drawing.Size(120, 24);
             this.betragsart.TabIndex = 5;
+            this.betragsart.SelectedIndexChanged += new System.EventHandler(this.betragsart_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -522,6 +550,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.dateTimePicker_KM);
             this.tabPage2.Controls.Add(this.label18);
             this.tabPage2.Controls.Add(this.label17);
             this.tabPage2.Controls.Add(this.label16);
@@ -547,6 +576,13 @@
             this.tabPage2.Text = "KM - Buch";
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
+            // 
+            // dateTimePicker_KM
+            // 
+            this.dateTimePicker_KM.Location = new System.Drawing.Point(86, 416);
+            this.dateTimePicker_KM.Name = "dateTimePicker_KM";
+            this.dateTimePicker_KM.Size = new System.Drawing.Size(207, 21);
+            this.dateTimePicker_KM.TabIndex = 49;
             // 
             // label18
             // 
@@ -603,7 +639,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(93, 419);
+            this.label13.Location = new System.Drawing.Point(37, 419);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(50, 16);
             this.label13.TabIndex = 43;
@@ -663,6 +699,7 @@
             this.kmStreckeUser.Name = "kmStreckeUser";
             this.kmStreckeUser.Size = new System.Drawing.Size(572, 21);
             this.kmStreckeUser.TabIndex = 34;
+            this.kmStreckeUser.TextChanged += new System.EventHandler(this.kmStreckeUser_TextChanged);
             // 
             // button4
             // 
@@ -682,6 +719,7 @@
             this.kmGefahrKMUser.Name = "kmGefahrKMUser";
             this.kmGefahrKMUser.Size = new System.Drawing.Size(135, 21);
             this.kmGefahrKMUser.TabIndex = 33;
+            this.kmGefahrKMUser.TextChanged += new System.EventHandler(this.kmGefahrKMUser_TextChanged);
             // 
             // kmZweckUser
             // 
@@ -689,13 +727,16 @@
             this.kmZweckUser.Name = "kmZweckUser";
             this.kmZweckUser.Size = new System.Drawing.Size(366, 21);
             this.kmZweckUser.TabIndex = 28;
+            this.kmZweckUser.TextChanged += new System.EventHandler(this.kmZweckUser_TextChanged);
             // 
             // kmDatumUser
             // 
-            this.kmDatumUser.Location = new System.Drawing.Point(150, 417);
+            this.kmDatumUser.Location = new System.Drawing.Point(401, 530);
             this.kmDatumUser.Name = "kmDatumUser";
             this.kmDatumUser.Size = new System.Drawing.Size(121, 21);
             this.kmDatumUser.TabIndex = 25;
+            this.kmDatumUser.Visible = false;
+            this.kmDatumUser.TextChanged += new System.EventHandler(this.kmDatumUser_TextChanged);
             // 
             // button5
             // 
@@ -729,119 +770,6 @@
             this.dataGridViewKM.TabIndex = 0;
             this.dataGridViewKM.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewKM_CellContentClick);
             this.dataGridViewKM.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewKM_RowHeaderMouseDoubleClick);
-            // 
-            // kMBuchBindingSource
-            // 
-            this.kMBuchBindingSource.DataMember = "KMBuch";
-            this.kMBuchBindingSource.DataSource = this.kmBuchDataset;
-            // 
-            // kmBuchDataset
-            // 
-            this.kmBuchDataset.DataSetName = "kmBuchDataset";
-            this.kmBuchDataset.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.label21);
-            this.tabPage3.Controls.Add(this.label19);
-            this.tabPage3.Controls.Add(this.label2);
-            this.tabPage3.Controls.Add(this.label1);
-            this.tabPage3.Controls.Add(this.pictureBox1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(933, 577);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Über dieses grandiose Program";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(712, 535);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(218, 42);
-            this.label19.TabIndex = 3;
-            this.label19.Text = "2016 - 2016";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(509, 132);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 9);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "(vielleicht auch Wallner)";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(296, 108);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(596, 24);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "EINE KOOPERATION ZWISCHEN REISENHOFER UND ZUCHALSKI";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.Image = global::Buchhaltung_Kappa.Properties.Resources.cpzYXCI;
-            this.pictureBox1.Location = new System.Drawing.Point(247, 164);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(411, 426);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // ausgangTableAdapter
-            // 
-            this.ausgangTableAdapter.ClearBeforeFill = true;
-            // 
-            // eingangTableAdapter
-            // 
-            this.eingangTableAdapter.ClearBeforeFill = true;
-            // 
-            // databaseDataSet11
-            // 
-            this.databaseDataSet11.DataSetName = "databaseDataSet1";
-            this.databaseDataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // kMBuchTableAdapter
-            // 
-            this.kMBuchTableAdapter.ClearBeforeFill = true;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(490, 616);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(455, 42);
-            this.label20.TabIndex = 4;
-            this.label20.Text = "Buchhaltung Kappa V1.0";
-            this.label20.Click += new System.EventHandler(this.label20_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Buchhaltung_Kappa.Properties.Resources.cpzYXCI;
-            this.pictureBox2.Location = new System.Drawing.Point(12, 616);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(48, 42);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(32, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(878, 108);
-            this.label21.TabIndex = 4;
-            this.label21.Text = "Buchhaltung Kappa";
             // 
             // iDDataGridViewTextBoxColumn2
             // 
@@ -888,6 +816,109 @@
             this.gefahreneKilometerDataGridViewTextBoxColumn.HeaderText = "Gefahrene Kilometer";
             this.gefahreneKilometerDataGridViewTextBoxColumn.Name = "gefahreneKilometerDataGridViewTextBoxColumn";
             // 
+            // kMBuchBindingSource
+            // 
+            this.kMBuchBindingSource.DataMember = "KMBuch";
+            this.kMBuchBindingSource.DataSource = this.kmBuchDataset;
+            // 
+            // kmBuchDataset
+            // 
+            this.kmBuchDataset.DataSetName = "kmBuchDataset";
+            this.kmBuchDataset.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.label21);
+            this.tabPage3.Controls.Add(this.label19);
+            this.tabPage3.Controls.Add(this.label1);
+            this.tabPage3.Controls.Add(this.pictureBox1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(933, 577);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Über dieses grandiose Program";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(32, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(878, 108);
+            this.label21.TabIndex = 4;
+            this.label21.Text = "Buchhaltung Kappa";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(712, 535);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(218, 42);
+            this.label19.TabIndex = 3;
+            this.label19.Text = "2016 - 2016";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(153, 108);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(734, 24);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "EINE KOOPERATION ZWISCHEN REISENHOFER, ZUCHALSKI UND KATTENBERG";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Image = global::Buchhaltung_Kappa.Properties.Resources.cpzYXCI;
+            this.pictureBox1.Location = new System.Drawing.Point(247, 164);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(411, 426);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // ausgangTableAdapter
+            // 
+            this.ausgangTableAdapter.ClearBeforeFill = true;
+            // 
+            // eingangTableAdapter
+            // 
+            this.eingangTableAdapter.ClearBeforeFill = true;
+            // 
+            // databaseDataSet11
+            // 
+            this.databaseDataSet11.DataSetName = "databaseDataSet1";
+            this.databaseDataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // kMBuchTableAdapter
+            // 
+            this.kMBuchTableAdapter.ClearBeforeFill = true;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.BackColor = System.Drawing.Color.Transparent;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(490, 616);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(455, 42);
+            this.label20.TabIndex = 4;
+            this.label20.Text = "Buchhaltung Kappa V1.0";
+            this.label20.Click += new System.EventHandler(this.label20_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Buchhaltung_Kappa.Properties.Resources.cpzYXCI;
+            this.pictureBox2.Location = new System.Drawing.Point(12, 616);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(48, 42);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
+            // 
             // Buchhaltung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -896,7 +927,9 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.tabControl1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Buchhaltung";
             this.Text = "Buchhaltung Kappa";
@@ -980,7 +1013,6 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
@@ -1009,6 +1041,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn kilometerAnfangDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kilometerEndeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn gefahreneKilometerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_Datum;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_vDatum;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_KM;
     }
 }
 

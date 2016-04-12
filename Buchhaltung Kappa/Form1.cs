@@ -91,14 +91,17 @@ namespace Buchhaltung_Kappa
             {
                 if (betragsart.SelectedItem.ToString() == "Eingang\t")
                 {
-                    this.eingangTableAdapter.Insert(Datum.Text, vDatum.Text, bezeichnung.Text, betrag.Text, mwststeuer.Text, mwst.Text);
+                    // this.eingangTableAdapter.Insert(Datum.Text, vDatum.Text, bezeichnung.Text, betrag.Text, mwststeuer.Text, mwst.Text);
+                    this.eingangTableAdapter.Insert(dateTimePicker_Datum.Value.ToShortDateString(), dateTimePicker_vDatum.Value.ToShortDateString(), bezeichnung.Text, betrag.Text, mwststeuer.Text, mwst.Text);
                     this.eingangTableAdapter.Update(this.databaseDataSet1.Eingang);
                     this.dataGridView2.Refresh();
                     dataLoad();
                 }
                 else
                 {
-                    this.ausgangTableAdapter.Insert(Datum.Text, vDatum.Text, bezeichnung.Text, betrag.Text, mwststeuer.Text, mwst.Text);
+                    this.ausgangTableAdapter.Insert(dateTimePicker_Datum.Value.ToShortDateString(), dateTimePicker_vDatum.Value.ToShortDateString(), bezeichnung.Text, betrag.Text, mwststeuer.Text, mwst.Text);
+
+                    // this.ausgangTableAdapter.Insert(Datum.Text, vDatum.Text, bezeichnung.Text, betrag.Text, mwststeuer.Text, mwst.Text);
                     this.ausgangTableAdapter.Update(this.databaseDataSet1.Ausgang);
                     this.dataGridView1.Refresh();
                     dataLoad();
@@ -106,7 +109,7 @@ namespace Buchhaltung_Kappa
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Bitte wählen Sie eine Betrags - Art aus!s");
+                MessageBox.Show("Bitte wählen Sie eine Betrags - Art aus!");
             }
         }
 
@@ -134,6 +137,7 @@ namespace Buchhaltung_Kappa
                 MessageBox.Show("Bitte geben Sie einen gültigen Steuerbetrag ein");
                 mwststeuer.Text = "";
             }
+            mwststeuer = changeColor(mwststeuer);
         }
 
         private void button3_Click_1(object sender, EventArgs e)
@@ -195,7 +199,7 @@ namespace Buchhaltung_Kappa
             //this.eingangTableAdapter.Insert(Datum.Text, vDatum.Text, bezeichnung.Text, betrag.Text, mwststeuer.Text, mwst.Text);
             //this.eingangTableAdapter.Update(this.databaseDataSet1.Eingang);
             //this.dataGridView2.Refresh();
-            this.kMBuchTableAdapter.Insert(kmDatumUser.Text, kmStreckeUser.Text, kmZweckUser.Text, int.Parse(kmAnfangUser.Text), int.Parse(kmEndeUser.Text), int.Parse(kmGefahrKMUser.Text));
+            this.kMBuchTableAdapter.Insert(dateTimePicker_KM.Value.ToShortDateString(), kmStreckeUser.Text, kmZweckUser.Text, int.Parse(kmAnfangUser.Text), int.Parse(kmEndeUser.Text), int.Parse(kmGefahrKMUser.Text));
 
             // this.kMBuchTableAdapter.Insert(kmDatumUser.Text, kmStreckeUser.Text, kmZweckUser.Text, int.Parse(kmAnfangUser.Text), int.Parse(kmEndeUser.Text), int.Parse(kmGefahrKMUser.Text));
             this.kMBuchTableAdapter.Update(this.kmBuchDataset.KMBuch);
@@ -232,6 +236,7 @@ namespace Buchhaltung_Kappa
                 MessageBox.Show("Keine Zahl als Kilometerwert angegeben");
                 resetkmbox();
             }
+            kmAnfangUser = changeColor(kmAnfangUser);
         }
 
         private void kmEndeUser_TextChanged(object sender, EventArgs e)
@@ -248,8 +253,8 @@ namespace Buchhaltung_Kappa
             {
                 MessageBox.Show("Keine Zahl als Kilometerwert angegeben");
                 resetkmbox();
-
             }
+            kmEndeUser = changeColor(kmEndeUser);
         }
 
         private void resetkmbox()
@@ -282,8 +287,13 @@ namespace Buchhaltung_Kappa
         {
             ID = int.Parse(this.dataGridView2.CurrentRow.Cells[0].Value.ToString());
             this.bezeichnung.Text = this.dataGridView2.CurrentRow.Cells[3].Value.ToString();
+
             this.Datum.Text = this.dataGridView2.CurrentRow.Cells[1].Value.ToString();
             this.vDatum.Text = this.dataGridView2.CurrentRow.Cells[2].Value.ToString();
+
+            this.dateTimePicker_Datum.Value = DateTime.Parse(this.dataGridView2.CurrentRow.Cells[1].Value.ToString());
+            this.dateTimePicker_vDatum.Value = DateTime.Parse(this.dataGridView2.CurrentRow.Cells[2].Value.ToString());
+
             this.betrag.Text = this.dataGridView2.CurrentRow.Cells[4].Value.ToString();
             this.mwststeuer.Text = this.dataGridView2.CurrentRow.Cells[5].Value.ToString();
             this.mwst.Text = this.dataGridView2.CurrentRow.Cells[6].Value.ToString();
@@ -297,8 +307,13 @@ namespace Buchhaltung_Kappa
         {
             ID = int.Parse(this.dataGridView1.CurrentRow.Cells[0].Value.ToString());
             this.bezeichnung.Text = this.dataGridView1.CurrentRow.Cells[3].Value.ToString();
+
             this.Datum.Text = this.dataGridView1.CurrentRow.Cells[1].Value.ToString();
             this.vDatum.Text = this.dataGridView1.CurrentRow.Cells[2].Value.ToString();
+
+            this.dateTimePicker_vDatum.Value = DateTime.Parse(this.dataGridView1.CurrentRow.Cells[2].Value.ToString());
+            this.dateTimePicker_Datum.Value = DateTime.Parse(this.dataGridView1.CurrentRow.Cells[1].Value.ToString());
+
             this.betrag.Text = this.dataGridView1.CurrentRow.Cells[4].Value.ToString();
             this.mwststeuer.Text = this.dataGridView1.CurrentRow.Cells[5].Value.ToString();
             this.mwst.Text = this.dataGridView1.CurrentRow.Cells[6].Value.ToString();
@@ -309,6 +324,9 @@ namespace Buchhaltung_Kappa
         {
             ID = int.Parse(this.dataGridViewKM.CurrentRow.Cells[0].Value.ToString());
             this.kmDatumUser.Text = this.dataGridViewKM.CurrentRow.Cells[1].Value.ToString();
+
+            this.dateTimePicker_KM.Value = DateTime.Parse(this.dataGridViewKM.CurrentRow.Cells[1].Value.ToString());
+
             this.kmStreckeUser.Text = this.dataGridViewKM.CurrentRow.Cells[2].Value.ToString();
             this.kmZweckUser.Text = this.dataGridViewKM.CurrentRow.Cells[3].Value.ToString();
             this.kmAnfangUser.Text = this.dataGridViewKM.CurrentRow.Cells[4].Value.ToString();
@@ -327,13 +345,84 @@ namespace Buchhaltung_Kappa
             }
             catch
             {
-                MessageBox.Show("Sie versuchen leere Datensätze zu löschen. \nBitte wählen sie zuerst einen Datensatz aus.");
+                MessageBox.Show("Sie versuchen leere Datensätze zu löschen.\nBitte wählen sie zuerst einen Datensatz aus.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
         private void label20_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Datum_TextChanged(object sender, EventArgs e)
+        {
+            Datum = changeColor(Datum);
+        }
+
+        private void bezeichnung_TextChanged(object sender, EventArgs e)
+        {
+            bezeichnung = changeColor(bezeichnung);
+        }
+
+        private void vDatum_TextChanged(object sender, EventArgs e)
+        {
+            vDatum = changeColor(vDatum);
+        }
+
+        private TextBox changeColor(TextBox field)
+        {
+            if (field.Text != "")
+            {
+                field.BackColor = Color.LightCyan;
+            }
+            else
+            {
+                field.BackColor = Color.White;
+            }
+
+            return field;
+        }
+
+        private void mwst_TextChanged(object sender, EventArgs e)
+        {
+            mwst = changeColor(mwst);
+        }
+
+        private void betrag_TextChanged(object sender, EventArgs e)
+        {
+            betrag = changeColor(betrag);
+        }
+
+        private void betragsart_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kmStreckeUser_TextChanged(object sender, EventArgs e)
+        {
+            kmStreckeUser = changeColor(kmStreckeUser);
+        }
+
+        private void kmDatumUser_TextChanged(object sender, EventArgs e)
+        {
+            kmDatumUser = changeColor(kmDatumUser);
+        }
+
+        private void kmZweckUser_TextChanged(object sender, EventArgs e)
+        {
+            kmZweckUser = changeColor(kmZweckUser);
+        }
+
+        private void kmGefahrKMUser_TextChanged(object sender, EventArgs e)
+        {
+            kmGefahrKMUser = changeColor(kmGefahrKMUser);
+        }
+
+        private void dateTimePicker_Datum_ValueChanged(object sender, EventArgs e)
+        {
+            //DateTime date = DateTime.Parse(dateTimePicker_Datum.Value.ToShortDateString());
+            //dateTimePicker_vDatum.Value = date;
+            //return;
         }
     }
 }
